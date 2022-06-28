@@ -18,7 +18,6 @@ class FileStorage():
         self.__objects[f"{obj.__name__}.{obj.id}"] = obj
 
     def save(self):
-
         new = {}
         with open(self.__file_path, mode='w', encoding='utf-8') as json_file:
             for key, value in self.__objects.items():
@@ -27,7 +26,6 @@ class FileStorage():
            
 
     def reload(self):
-
         try:
             with open(self.__file_path, mode='r', encoding='utf-8') as json_file:
                 new_dict = json.loads(json_file())
