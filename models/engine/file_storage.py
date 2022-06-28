@@ -8,16 +8,16 @@ class FileStorage():
     """ defines class FileStorage """
     __file_path = "file.json"
     __objects = {}
-    def __init__(self) -> None:
-        pass
-
     def all(self):
+        """ returns dictionary """
         return self.__objects
 
     def new(self, obj):
+        """ sets objects attribute """
         self.__objects["{}.{}".format(type(obj).__name__, obj.id)] = obj
 
     def save(self):
+        """" serializes objects to JSON file """
         new = {}
         with open(self.__file_path, mode='w', encoding='utf-8') as json_file:
             for key, value in self.__objects.items():
@@ -26,6 +26,7 @@ class FileStorage():
            
 
     def reload(self):
+        """ deserializes JSON file to object """
         try:
             with open(self.__file_path, mode='r', encoding='utf-8') as json_file:
                 for o in json.load(json_file).values():
