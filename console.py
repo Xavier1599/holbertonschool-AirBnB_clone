@@ -2,6 +2,7 @@
 """ module that contains the command interpreter """
 import cmd
 
+
 class HBNBCommand(cmd.Cmd):
     """ defines command interpreter class """
     prompt = '(hbnb)'
