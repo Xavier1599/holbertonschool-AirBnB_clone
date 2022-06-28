@@ -18,9 +18,23 @@ class FileStorage():
         self.__objects[f"{obj.__name__}.{obj.id}"] = obj
 
     def save(self):
-        string_rep = json.dumps(self.__objects)
-        with open(self.__file_path, 'a') as jsonfile:
-            jsonfile.write(string_rep)
+
+        new = {}
+        with open(self.__file_path, mode='w', encoding='utf-8') as json_file:
+            for key, value in self.__objects.items():
+                new.update({key: value.to_dict()})
+            json_file.write(json.dumps(new))
+           
 
     def reload(self):
-        pass
+
+        try:
+            with open(self.__file_path, mode='r', encoding='utf-8') as json_file:
+                new_dict = json.loads(json_file())
+                for key, value in new_dict.items():
+                    class_name = value.get("__class__")
+                    obj = eval(class_name + "(**value)")
+                    self.__objects[key] = obj
+
+        except IOError:
+            pass
