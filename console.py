@@ -12,7 +12,7 @@ class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb) '
 
     def do_create(self, args):
-        'comment'
+        'creates new instance and saves it to JSON file'
         if not args:
             print("** class name missing **")
         elif args != BaseModel.__name__:
@@ -23,20 +23,23 @@ class HBNBCommand(cmd.Cmd):
             print(new.id)
 
     def do_show(self, args):
-        rep = storage.all()
+        'prints a string representation of an instance, based on name and id'
+        all_objs = storage.all()
         arg_list = args.split()
         if not arg_list:
-            print ("** class name is missing **")
+            print("** class name is missing **")
         elif arg_list[0] != BaseModel.__name__:
             print("** class doesn't exist **")
         elif len(arg_list) == 1:
             print("** instance id missing **")
-        elif len(arg_list) > 1 or arg_list[2] != new.id:
-            print("** no instance found **")
         else:
-            for obj_id in rep.keys():
-                if args[1] == rep[obj_id]:
-                    print(obj_id)
+            match = False
+            for obj_id in all_objs.keys():
+                if arg_list[1] == all_objs[obj_id].id:
+                    print(all_objs[obj_id])
+                    match = True
+            if match is not True:
+                print("** no instance found **")
 
     def do_quit(self, args):
         'Quit command to exit the program\n'
