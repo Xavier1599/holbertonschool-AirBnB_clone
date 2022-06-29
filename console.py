@@ -12,7 +12,7 @@ class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb) '
 
     def do_create(self, args):
-        'creates new instance and saves it to JSON file'
+        'Creates new instance and saves it to JSON file\n'
         if not args:
             print("** class name missing **")
         elif args != BaseModel.__name__:
@@ -23,7 +23,7 @@ class HBNBCommand(cmd.Cmd):
             print(new.id)
 
     def do_show(self, args):
-        'prints a string representation of an instance, based on name and id'
+        'Prints a string representation of an instance, based on name and id\n'
         all_objs = storage.all()
         arg_list = args.split()
         if not arg_list:
