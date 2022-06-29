@@ -58,13 +58,26 @@ class HBNBCommand(cmd.Cmd):
         all_objs = storage.all()
         if len(arg_list) == 0:
             print("** class name missing **")
-        elif args != BaseModel.__name__:
+        elif arg_list[0] != BaseModel.__name__:
             print("** class doesn't exist **")
         elif len(arg_list) == 1:
             print("** instance id missing **")
         else:
-            pass
-                    
+            match = False
+            for obj_id in all_objs.keys():
+                if arg_list[1] == all_objs[obj_id].id:
+                    match = all_objs[obj_id]
+            if match is False:
+                print("** no instance found **")
+            else:
+                if len(arg_list) == 2:
+                    print("** attribute name is missing **")
+                elif len(arg_list) == 3:
+                    print("** value is missing **")
+                else:
+                    setattr(match, arg_list[2], arg_list[3])
+
+
     def do_quit(self, args):
         'Quit command to exit the program\n'
         exit()
