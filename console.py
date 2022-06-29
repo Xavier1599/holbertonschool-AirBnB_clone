@@ -2,7 +2,6 @@
 """ module that contains the command interpreter """
 import cmd
 import json
-from nntplib import ArticleInfo
 
 from models.base_model import BaseModel
 from models import storage
@@ -41,8 +40,20 @@ class HBNBCommand(cmd.Cmd):
                     match = True
             if match is not True:
                 print("** no instance found **")
+    
+    def do_all(self, args):
+        'Prints string representation multiple instances\n'
+        all_objs = storage.all()
+        if args != BaseModel.__name__:  
+            print("** class doesn't exist **")
+        else:
+            rep_list = []
+            for obj_id in all_objs.keys():
+                rep_list.append(all_objs[obj_id].__str__())
+            print(rep_list)
 
     def do_update(self, args):
+        'Updates an instance\n'
         arg_list = args.split()
         all_objs = storage.all()
         if len(arg_list) == 0:
@@ -52,7 +63,7 @@ class HBNBCommand(cmd.Cmd):
         elif len(arg_list) == 1:
             print("** instance id missing **")
         else:
-            
+            pass
                     
     def do_quit(self, args):
         'Quit command to exit the program\n'
