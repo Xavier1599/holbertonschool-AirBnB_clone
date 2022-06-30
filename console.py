@@ -17,14 +17,15 @@ class HBNBCommand(cmd.Cmd):
     """ defines command interpreter class """
     prompt = '(hbnb) '
 
-    __list_class = {"BaseModel" : BaseModel(),
-                        "User" : User(),
-                        "State" : State(),
-                        "City" : City(),
-                        "Amenity" : Amenity(),
-                        "Place" : Place(),
-                        "Review" : Review()
-                                        }   
+    __list_class = {
+        "BaseModel": BaseModel(),
+        "User": User(),
+        "State": State(),
+        "City": City(),
+        "Amenity": Amenity(),
+        "Place": Place(),
+        "Review": Review()
+        }
 
     def do_create(self, args):
         'Creates new instance and saves it to JSON file\n'
@@ -56,7 +57,7 @@ class HBNBCommand(cmd.Cmd):
                     match = True
             if match is not True:
                 print("** no instance found **")
-    
+
     def do_all(self, args):
         'Prints string representation multiple instances\n'
         arg_list = args.split()
@@ -66,7 +67,7 @@ class HBNBCommand(cmd.Cmd):
             for obj_id in all_objs.keys():
                 rep_list.append(all_objs[obj_id].__str__())
             print(rep_list)
-        elif arg_list[0] not in HBNBCommand.__list_class: 
+        elif arg_list[0] not in HBNBCommand.__list_class:
             print("** class doesn't exist **")
         else:
             rep_list = []
@@ -118,14 +119,14 @@ class HBNBCommand(cmd.Cmd):
                         match = True
                         del all_objs[obj_id]
                         new = {}
-                        with open("file.json", 'w', encoding='utf-8') as json_file:
+                        with open("file.json", 'w', encoding='utf-8') as jf:
                             for key, value in all_objs.items():
                                 new.update({key: value.to_dict()})
-                            json_file.write(json.dumps(new))
+                            jf.write(json.dumps(new))
                         break
                     except KeyError:
                         pass
-                    
+
             if match is not True:
                 print("** no instance found **")
 
