@@ -61,12 +61,18 @@ class HBNBCommand(cmd.Cmd):
         'Prints string representation multiple instances\n'
         arg_list = args.split()
         all_objs = storage.all()
-        if arg_list[0] not in HBNBCommand.__list_class: 
+        if len(args) == 0:
+            rep_list = []
+            for obj_id in all_objs.keys():
+                rep_list.append(all_objs[obj_id].__str__())
+            print(rep_list)
+        elif arg_list[0] not in HBNBCommand.__list_class: 
             print("** class doesn't exist **")
         else:
             rep_list = []
             for obj_id in all_objs.keys():
-                rep_list.append(all_objs[obj_id].__str__())
+                if arg_list[0] == all_objs[obj_id].__class__.__name__:
+                    rep_list.append(all_objs[obj_id].__str__())
             print(rep_list)
 
     def do_update(self, args):
