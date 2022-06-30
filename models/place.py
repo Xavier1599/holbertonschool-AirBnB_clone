@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
+""" module defines Place"""
+
 from models.base_model import BaseModel
 
 
-
 class Place(BaseModel):
-
+    """ defines Place class """
     city_id = ""
     user_id = ""
     name = ""
