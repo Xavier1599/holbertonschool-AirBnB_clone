@@ -1,7 +1,9 @@
 #!/usr/bin/python3
 """ module defines FileStorage """
 
+import imp
 import json
+from pydoc import importfile
 from models.base_model import BaseModel
 from models.user import User
 
@@ -20,7 +22,7 @@ class FileStorage():
         self.__objects["{}.{}".format(type(obj).__name__, obj.id)] = obj
 
     def save(self):
-        """" serializes objects to JSON file """
+        """ serializes objects to JSON file """
         new = {}
         with open(self.__file_path, 'w', encoding='utf-8') as json_file:
             for key, value in self.__objects.items():
@@ -31,6 +33,13 @@ class FileStorage():
         """ deserializes JSON file to object """
         try:
             with open(self.__file_path, 'r', encoding='utf-8') as json_file:
+                from models.base_model import BaseModel
+                from models.user import User
+                from models.state import State
+                from models.city import City
+                from models.amenity import Amenity
+                from models.place import Place
+                from models.review import Review
                 for o in json.load(json_file).values():
                     class_name = o["__class__"]
                     del o["__class__"]
