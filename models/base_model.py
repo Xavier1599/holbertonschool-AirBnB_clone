@@ -4,7 +4,7 @@
 from datetime import datetime
 from time import strptime
 import uuid
-from models import storage
+import models
 
 
 class BaseModel():
@@ -28,8 +28,8 @@ class BaseModel():
     def save(self):
         """ updates de updated_at attribute """
         self.updated_at = datetime.now()
-        storage.new(self)
-        storage.save()
+        models.storage.new(self)
+        models.storage.save()
 
     def to_dict(self):
         """ returns dictionary of key/values """
