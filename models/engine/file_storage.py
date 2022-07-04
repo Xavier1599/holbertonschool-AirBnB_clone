@@ -1,9 +1,7 @@
 #!/usr/bin/python3
 """ module defines FileStorage """
 
-import imp
 import json
-from pydoc import importfile
 from models.base_model import BaseModel
 from models.user import User
 from models.amenity import Amenity
@@ -20,11 +18,11 @@ class FileStorage():
 
     def all(self):
         """ returns dictionary """
-        return self.__objects
+        return FileStorage.__objects
 
     def new(self, obj):
         """ sets objects attribute """
-        self.__objects["{}.{}".format(type(obj).__name__, obj.id)] = obj
+        FileStorage.__objects["{}.{}".format(type(obj).__name__, obj.id)] = obj
 
     def save(self):
         """ serializes objects to JSON file """
