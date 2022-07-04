@@ -41,4 +41,4 @@ class FileStorage():
                     del o["__class__"]
                     self.new(eval(class_name(**o)))
         except FileNotFoundError:
-            return
+            pass
