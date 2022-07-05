@@ -4,6 +4,11 @@
 import json
 from models.base_model import BaseModel
 from models.user import User
+from models.state import State
+from models.city import City
+from models.place import Place
+from models.amenity import Amenity
+from models.review import Review
 
 
 class FileStorage():
@@ -35,5 +40,5 @@ class FileStorage():
                     class_name = o["__class__"]
                     del o["__class__"]
                     self.new(eval(class_name)(**o))
-        except FileNotFoundError:
+        except IOError:
             pass
