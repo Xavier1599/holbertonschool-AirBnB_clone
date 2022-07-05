@@ -45,7 +45,7 @@ Type 'help' to show the avalible commands:
 <img width="372" alt="Screen Shot 2022-07-04 at 8 28 17 PM" src="https://user-images.githubusercontent.com/85242327/177228324-f3866982-d213-4aca-b6e2-32bfd1f5baff.png">
 
 
-Type 'quit' to exit the console:
+Type 'quit' or 'EOF' to exit the console:
 
 
 <img width="399" alt="Screen Shot 2022-07-04 at 8 31 13 PM" src="https://user-images.githubusercontent.com/85242327/177228409-6f2198e1-2c59-46c5-a424-1cbd20e6e4e9.png">
