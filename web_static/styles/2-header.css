@@ -1,5 +1,12 @@
 header {
+<<<<<<< HEAD
+    background: #FF0000;
+    height: 70px;
+    width: 100%;
+}
+=======
     background-color: #FF0000; 
     height: 70px; 
     width: 100%;
 }
+>>>>>>> refs/remotes/origin/main

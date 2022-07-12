@@ -1,9 +1,18 @@
 .filters {
+<<<<<<< HEAD
+    color: white;
+=======
     background-color: white;
+>>>>>>> refs/remotes/origin/main
     height: 70px;
     width: 100%;
     border: 1px solid #DDDDDD;
     border-radius: 4px;
+<<<<<<< HEAD
+    display: flex;
+    align-items: center;
+=======
+>>>>>>> refs/remotes/origin/main
 }
 
 button {
@@ -14,6 +23,30 @@ button {
     width: 20%;
     border: none;
     border-radius: 4px;
+<<<<<<< HEAD
+    margin-right: 30px;
+    margin-left: auto;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+h3 {
+    font-weight: 600;
+    color: #484848;
+    margin: 10px 40px 5px;
+}
+
+h4 {
+    font-weight: 400;
+    font-size: 14px;
+    color: #484848;
+    margin: 0 40px;
+}
+
+.locations,
+=======
     float: right;
     margin: 10px 30px 10px 0px;
 }
@@ -28,11 +61,17 @@ button:hover {
     border-right: 1px solid #DDDDDD;
 }
 
+>>>>>>> refs/remotes/origin/main
 .amenities {
     height: 100%;
     width: 25%;
 }
 
+<<<<<<< HEAD
+.locations {
+    border-right: 1px solid #DDDDDD;
+}
+=======
 .locations h3, .amenities h3 {
     font-weight: 600;
     text-align: left;
@@ -49,3 +88,4 @@ button:hover {
 .locations, .amenities {
     display: inline-block;
 }
+>>>>>>> refs/remotes/origin/main
